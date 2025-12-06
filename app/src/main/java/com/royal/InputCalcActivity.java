@@ -42,19 +42,37 @@ public class InputCalcActivity extends AppCompatActivity {
                 String strN1 = edtN1.getText().toString();
                 String strN2 = edtN2.getText().toString();
 
-                int n1 = Integer.parseInt(strN1);
-                int n2 = Integer.parseInt(strN2);
+                boolean isError = false;
 
-                int ans = n1 + n2 ;
+                if(strN1.isEmpty()){
+                    isError = true;
+                    edtN1.setError("This field is required");
+                }
 
-                //alert -> Toast
-                Toast.makeText(getApplicationContext(),"Addition => "+ans,Toast.LENGTH_LONG).show();
+                if(strN2.isEmpty()){
+                    isError = true;
+                    edtN2.setError("This field is required");
+                }
 
-                //navigate to the next activity
-                Intent intent = new Intent(getApplicationContext(), OutputCalcActivity.class);
-                intent.putExtra("ans",ans);
-                startActivity(intent);
-            }
+
+                if(!isError){
+
+                    int n1 = Integer.parseInt(strN1);
+                    int n2 = Integer.parseInt(strN2);
+
+                    int ans = n1 + n2 ;
+
+                    //alert -> Toast
+                    Toast.makeText(getApplicationContext(),"Addition => "+ans,Toast.LENGTH_LONG).show();
+
+                    //navigate to the next activity
+                    Intent intent = new Intent(getApplicationContext(), OutputCalcActivity.class);
+                    intent.putExtra("ans",ans);
+                    startActivity(intent);
+
+                }
+
+                 }
         });
 
     }

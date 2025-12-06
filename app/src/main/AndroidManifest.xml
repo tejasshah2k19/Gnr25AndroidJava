@@ -12,12 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gnr25AndroidJava">
         <activity
-            android:name=".OutputCalcActivity"
-            android:exported="false" />
+            android:name=".AddProductActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
         <activity
-            android:name=".InputCalcActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Gnr25AndroidJava">
+            android:name=".LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,8 +31,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
-            android:exported="true">
+            android:name=".OutputCalcActivity"
+            android:exported="false"></activity>
+        <activity
+            android:name=".InputCalcActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Gnr25AndroidJava">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

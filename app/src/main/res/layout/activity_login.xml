@@ -5,27 +5,39 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvLoginTitle"
-        android:text="@string/login"
-        android:textSize="22pt"
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/tvLoginTitle"-->
+<!--        android:text="@string/login"-->
+<!--        android:textSize="22pt"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        />-->
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imgViewLoginIcon"
+        android:src="@drawable/guitar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edtLoginEmail"
-        android:layout_below="@id/tvLoginTitle"
+        android:layout_below="@id/imgViewLoginIcon"
         android:layout_marginTop="150dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:hint="@string/enter_email"
+        android:drawableStart="@drawable/email"
 
         />
 
