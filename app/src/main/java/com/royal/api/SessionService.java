@@ -1,5 +1,6 @@
 package com.royal.api;
 
+import com.royal.model.LoginResponseModel;
 import com.royal.model.UserModel;
 
 import retrofit2.Call;
@@ -13,6 +14,8 @@ public interface SessionService {
     Call<UserModel> signup(@Body UserModel userModel);
 
     //login
+    @POST("api/auth/login")
+    Call<LoginResponseModel> login(@Body UserModel userModel);
 
     //forgetpassword
 

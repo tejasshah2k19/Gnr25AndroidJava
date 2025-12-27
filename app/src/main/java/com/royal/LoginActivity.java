@@ -6,12 +6,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.royal.api.SessionService;
+import com.royal.config.RetrofitClient;
+import com.royal.model.LoginResponseModel;
+import com.royal.model.UserModel;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -58,6 +69,39 @@ public class LoginActivity extends AppCompatActivity {
                 tvShowPassword.setText("Password => "+password);
 
 
+                //api
+
+                UserModel userModel = new UserModel();
+                userModel.setEmail(email);
+                userModel.setPassword(password);
+                Retrofit retrofit = RetrofitClient.getRetrofit();
+                SessionService sessionService = retrofit.create(SessionService.class);
+
+                sessionService.login(userModel).enqueue(new Callback<LoginResponseModel>() {
+                    @Override
+                    public void onResponse(Call<LoginResponseModel> call, Response<LoginResponseModel> response) {
+
+
+                        Log.i("login api",response.toString());
+
+                        if(response.body() == null){
+                            Log.i("login api", "Invalid Credentials...");
+
+                        }else {
+                            Log.i("login api", response.body().getMessage());
+                            Log.i("login api", response.body().getToken());
+                        }
+
+
+//                        Toast.makeText(getApplicationContext(),"Login done",Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<LoginResponseModel> call, Throwable throwable) {
+                        Toast.makeText(getApplicationContext(),"PTA",Toast.LENGTH_LONG).show();
+
+                    }
+                });
             }
         });
 

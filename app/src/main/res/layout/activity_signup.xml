@@ -110,4 +110,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"/>
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvSignupLoginLink"
+                android:text="Login"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/btnSignup"
+            android:layout_marginTop="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="8pt"
+            />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,12 @@
 package com.royal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -31,6 +34,8 @@ public class SignupActivity extends AppCompatActivity {
     TextInputEditText etFirstName, etEmail, etPassword,etLastName;
     MaterialButton btnSignup;
 
+    TextView tvLoginLink;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +53,17 @@ public class SignupActivity extends AppCompatActivity {
 
         btnSignup = findViewById(R.id.btnSignup);
 
+        tvLoginLink = findViewById(R.id.tvSignupLoginLink);
+
         btnSignup.setOnClickListener(v -> validateAndSignup());
+
+        tvLoginLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void validateAndSignup() {
@@ -121,5 +136,9 @@ public class SignupActivity extends AppCompatActivity {
         Toast.makeText(this,
                 "Signup successful!\n" + firstName + " | " + email,
                 Toast.LENGTH_LONG).show();
+
+        Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+        startActivity(intent);
+
     }
 }
