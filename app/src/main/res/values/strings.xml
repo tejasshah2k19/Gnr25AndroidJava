@@ -54,4 +54,7 @@
     <string name="enter_product_category">Enter Product Category</string>
     <string name="enter_quantity">Enter Quantity</string>
     <string name="enter_price">Enter Price</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="logout">Logout</string>
+    <string name="play">Play</string>
 </resources>

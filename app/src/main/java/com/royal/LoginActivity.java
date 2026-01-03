@@ -86,7 +86,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         if(response.body() == null){
                             Log.i("login api", "Invalid Credentials...");
-
                         }else {
                             Log.i("login api", response.body().getMessage());
                             Log.i("login api", response.body().getToken());

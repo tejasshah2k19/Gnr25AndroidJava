@@ -72,6 +72,12 @@ public class GamePlayActivity extends AppCompatActivity {
                            }else{
                                view.setBackground(getResources().getDrawable(R.drawable.diamond));
                                //
+                                //get credit from textView
+                               // double it
+                               //set credit to text view
+                               //3 time
+                               //api -> credit -> 800
+
                            }
                  }
             });
