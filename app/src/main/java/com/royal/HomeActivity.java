@@ -1,6 +1,8 @@
 package com.royal;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +11,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class HomeActivity extends AppCompatActivity {
+
+    TextView tvCredit;
+    TextView tvUserName;
 
     //Button
     @Override
@@ -23,6 +28,17 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         //bind
+        tvCredit = findViewById(R.id.tvHomeCredits);
+        tvUserName = findViewById(R.id.tvHomeUserName);
+
+        SharedPreferences preferences = getSharedPreferences("DIAMOND",MODE_PRIVATE);
+
+        String firstName  = preferences.getString("firstName","DIAMOND");
+        int credit  =preferences.getInt("credit",0);
+
+
+        tvUserName.setText(firstName);
+        tvCredit.setText(credit+"");
 
         //onClick
 

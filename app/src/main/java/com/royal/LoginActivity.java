@@ -1,5 +1,7 @@
 package com.royal;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -89,6 +91,24 @@ public class LoginActivity extends AppCompatActivity {
                         }else {
                             Log.i("login api", response.body().getMessage());
                             Log.i("login api", response.body().getToken());
+                            Log.i("user => ",response.body().getUser().getFirstName());
+
+                            //shared pref -> store
+
+                            SharedPreferences preferences = getSharedPreferences("DIAMOND",MODE_PRIVATE);
+
+                            SharedPreferences.Editor editor =  preferences.edit();
+
+                            UserModel user = response.body().getUser();
+                            editor.putString("firstName",response.body().getUser().getFirstName());
+                            editor.putString("id",response.body().getUser().get_id());
+                            editor.putInt("credit",user.getCredit());
+                            editor.putString("token",response.body().getToken());
+
+                            editor.apply();
+
+                            Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                            startActivity(intent);
                         }
 
 
