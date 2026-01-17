@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gnr25AndroidJava">
         <activity
+            android:name=".LeaderboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
